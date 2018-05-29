@@ -5,7 +5,7 @@ MINIMUM_ANDROID_64_BIT_SDK_VERSION=$2
 OPENSSL_FULL_VERSION="openssl-1.1.0h"
 
 if [ ! -f "$OPENSSL_FULL_VERSION.tar.gz" ]; then
-    wget https://www.openssl.org/source/$OPENSSL_FULL_VERSION.tar.gz
+    curl -O https://www.openssl.org/source/$OPENSSL_FULL_VERSION.tar.gz
 fi
 tar -xvzf $OPENSSL_FULL_VERSION.tar.gz
 
