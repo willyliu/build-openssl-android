@@ -57,10 +57,6 @@ tar -xvzf $OPENSSL_FULL_VERSION.tar.gz
 
  rm -rf ${ANDROID_LIB_ROOT}
 
- # copy header
- mkdir -p "${ANDROID_LIB_ROOT}/include/openssl"
- cp -r "include/openssl" "${ANDROID_LIB_ROOT}/include/"
-
  ./Configure dist
 
  for ANDROID_TARGET_PLATFORM in armeabi armeabi-v7a x86 x86_64 arm64-v8a
@@ -144,5 +140,9 @@ tar -xvzf $OPENSSL_FULL_VERSION.tar.gz
 
      mv libcrypto.a ${ANDROID_LIB_ROOT}/${PLATFORM_OUTPUT_DIR}
      mv libssl.a ${ANDROID_LIB_ROOT}/${PLATFORM_OUTPUT_DIR}
+
+     # copy header
+     mkdir -p "${ANDROID_LIB_ROOT}/${PLATFORM_OUTPUT_DIR}/include/openssl"
+     cp -r "include/openssl" "${ANDROID_LIB_ROOT}/${PLATFORM_OUTPUT_DIR}/include/"
  done 
 )
